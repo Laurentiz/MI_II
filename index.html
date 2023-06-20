@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>mindAR Video Background Example</title>
+  <script src="https://mindar.app/scripts/mindar.min.js"></script>
+</head>
+<body>
+  <div id="mindarContainer"></div>
+
+  <script>
+    // Initialize mindAR with video background
+    const videoElement = document.getElementById('videoElement');
+    const mindAR = new MindAR({
+      container: 'mindarContainer',
+      camera: {
+        resolution: '640x480' // Adjust as needed
+      },
+      videoBackground: videoElement
+    });
+
+    // Load and track marker
+    mindAR.loadMarker('path/to/marker.png').then((marker) => {
+      marker.addEventListener('markerVisible', () => {
+        // Marker is visible, render AR objects
+        // Add your code to display 3D models or other AR elements
+      });
+    });
+  </script>
+</body>
+</html>
